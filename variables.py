@@ -1,0 +1,8 @@
+INSTAGRAM = "https://www.instagram.com/"
+pliki_cookies = "Zezwól na wszystkie pliki cookie"
+login = "adamnowak4268"
+haslo = "ada4268now"
+login_pole="Numer telefonu, nazwa użytkownika lub adres e-mail"
+haslo_pole="Hasło"
+zalog = "Zaloguj się"
+CHROME = "chromedriver.exe"
