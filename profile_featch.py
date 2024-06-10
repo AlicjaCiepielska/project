@@ -5,12 +5,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains, Keys
 from buttons import Web_site_interactions
 import variables as var
+from profile_info import Saving_data
 
 class Profile_fetch:
     def __init__(self, driver):
         self.driver = driver
         self.web_site_interactions = Web_site_interactions(self.driver)
         self.actions = ActionChains(self.driver)
+        self.save = Saving_data(self.driver)
     def go_to_followers(self):
         self.web_site_interactions.open_website(var.INSTAGRAM+var.USERNAME+"/followers/")
     def go_to_following(self):
@@ -68,8 +70,9 @@ class Profile_fetch:
             a_elements.append(self.DFS_finding_link(child_el[n]))
             linki.append(self.web_site_interactions.get_href_from_a(self.DFS_finding_link(child_el[n])))
 
-        print(len(linki))
-        print("x")
+        #print(len(linki))
+        #print("x")
+        self.save.saving_info("following", linki)
         return linki
 
     def get_followers_links(self):
@@ -114,6 +117,7 @@ class Profile_fetch:
             a_elements.append(self.DFS_finding_link(child_el[n]))
             linki.append(self.web_site_interactions.get_href_from_a(self.DFS_finding_link(child_el[n])))
 
-        print(len(linki))
-        print("x")
+        #print(len(linki))
+        #print("x")
+        self.save.saving_info("followers", linki)
         return linki
